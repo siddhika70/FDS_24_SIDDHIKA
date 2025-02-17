@@ -1,1 +1,94 @@
-
+#include<stdio.h>
+#include<string.h>
+struct student
+{ 
+ char name[10];
+ int roll_no;
+ 
+ };
+  int main()
+  {
+  struct student a[3];
+  int i,ch,roll,position,found;
+  do
+  {
+  printf("1. enter the details");
+  printf("\n2. display the details");
+  printf("\n3. update the details");
+  printf("\n4.delete the details");
+  printf("\n5. exit");
+  printf("\n enter the choice\n\n");
+  scanf("%d", &ch);
+ 
+   switch(ch)
+   {
+   case 1: for(i=1;i<=3;i++){
+   printf("student:%d\n,i");
+   printf("\n enter name:");
+   scanf("%s",a[i].name);
+   printf("\nEnter roll no.:\n\n");
+   scanf("%d",&a[i].roll_no);
+   }
+   break;
+   
+   case 2: for(i=1;i<3;i++)
+   {
+   printf("\n name:%s",a[i].name);
+   printf("\n roll_no/: %d\n\n",a[i].roll_no);
+   }
+   break;
+   
+   case 3: printf("enter the roll_no. to modify details");
+   scanf("%d", &roll);
+   if (a[i].roll_no)
+   {
+   printf("\nenter new name:");
+   scanf("%s",a[i].name);
+   printf("\nenter new roll no,:");
+   scanf("%d", &a[i].roll_no);
+   }
+   printf("\nmodified successsful....\n");
+   break;
+   
+   case 4: printf("\nenter roll no.:\n");
+   scanf("%d",&roll);
+   for(i=1;i<=3;i++)
+   {
+   if(a[i].roll_no)
+   {
+   position=i;
+   found=1;
+   break;
+   }
+   }
+   for(i=position;i<3-1;i++)
+   {
+   a[i].roll_no+a[i+1].roll_no;
+   strcpy(a[i].name,a[i+1].name);
+   }
+   printf("\n delete successfully..\n");
+   break;
+   
+   
+   case 5: printf("\nexit from the program");
+   break;
+   
+   default:
+   printf("\nwrong choice\n");
+   
+   }
+     printf("do you want to continue (1/0)");
+     }
+     while(ch!=0);
+  return 0;
+  }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
