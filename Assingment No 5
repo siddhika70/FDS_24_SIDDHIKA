@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+int main() {
+    int size, key, found = 0;
+
+    // Input array size
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size]; // Declare array dynamically based on user input
+
+    // Input array elements
+    printf("Enter %d elements: ", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input the element to search
+    printf("Enter the element to search: ");
+    scanf("%d", &key);
+
+    // Perform linear search
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            printf("Element %d found at index %d\n", key, i);
+            found = 1;
+            break; // Stop searching after the first occurrence
+        }
+    }
+
+    // If element not found
+    if (!found) {
+        printf("Element %d not found in the array\n", key);
+    }
+
+    return 0;
+}
+
+
+
+//Binary Search Code
+
+#include <stdio.h>
+
+int main() {
+    int size, key, left, right, mid;
+
+    // Input size of array
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    int arr[size]; // Declare array dynamically
+
+    // Input sorted array elements
+    printf("Enter %d sorted elements: ", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input element to search
+    printf("Enter the element to search: ");
+    scanf("%d", &key);
+
+    // Initialize search range
+    left = 0;
+    right = size - 1;
+
+    // Perform binary search
+    while (left <= right) {
+        mid = left + (right - left) / 2;
+
+        if (arr[mid] == key) {
+            printf("Element %d found at index %d\n", key, mid);
+            return 0;
+        } else if (arr[mid] < key) {
+            left = mid + 1; // Search right half
+        } else {
+            right = mid - 1; // Search left half
+        }
+    }
+
+    // If element not found
+    printf("Element %d not found in the array\n", key);
+
+    return 0;
+}
